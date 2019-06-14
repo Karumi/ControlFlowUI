@@ -34,7 +34,7 @@ public struct CaseIs<Value, Content: View> {
 }
 
 @_functionBuilder
-struct ViewByTypeBuilder {
+public struct ViewByTypeBuilder {
 
     /// Builds an empty view from an block containing no statements, `{ }`.
     public static func buildBlock() -> [String: (Any) -> AnyView] {
