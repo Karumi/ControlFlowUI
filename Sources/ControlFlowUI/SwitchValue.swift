@@ -2,10 +2,10 @@ import Foundation
 import SwiftUI
 
 public struct SwitchValue<Value>: View {
-    private let value: Value
-    private let bodyBuilder: (Value) -> AnyView
+    let value: Value
+    let bodyBuilder: (Value) -> AnyView
 
-    public init(_ value: Value, @ViewByTypeBuilder builder: () -> [String: (Value) -> AnyView]) {
+    public init(_ value: Value, @ViewByTypeBuilder builder: () -> [String: (Any) -> AnyView]) {
         self.value = value
         let typeKey = "\(type(of: value as Any))" // Trick to find dynamic type. See  https://developer.apple.com/documentation/swift/2885064-type
         if let bodyBuilder = builder()[typeKey] {
@@ -35,6 +35,7 @@ public struct CaseIs<Value, Content: View> {
 
 @_functionBuilder
 public struct ViewByTypeBuilder {
+    public typealias Component = [String: (Any) -> AnyView]
 
     /// Builds an empty view from an block containing no statements, `{ }`.
     public static func buildBlock() -> [String: (Any) -> AnyView] {

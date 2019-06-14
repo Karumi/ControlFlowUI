@@ -1,15 +1,18 @@
 import XCTest
+import SwiftUI
 @testable import ControlFlowUI
 
-final class ControlFlowUITests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(ControlFlowUI().text, "Hello, World!")
+final class CaseIsTests: XCTestCase {
+    func testCaseIsBuilder() {
+        let caseIs = CaseIs(Int.self) { int in
+            Text(int.description)
+        }
+
+        let expectedValue = 42
+        XCTAssertEqual(caseIs.builder(expectedValue), Text(expectedValue.description))
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testCaseIsBuilder", testCaseIsBuilder),
     ]
 }
