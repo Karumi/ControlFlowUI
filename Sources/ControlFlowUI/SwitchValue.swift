@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-struct SwitchValue<Value>: View {
+public struct SwitchValue<Value>: View {
     private let value: Value
     private let bodyBuilder: (Value) -> AnyView
 
@@ -15,12 +15,12 @@ struct SwitchValue<Value>: View {
         }
     }
 
-    var body: some View {
+    public var body: some View {
         return bodyBuilder(value)
     }
 }
 
-struct CaseIs<Value, Content: View> {
+public struct CaseIs<Value, Content: View> {
     let type: String
     let builder: (Value) -> Content
     var builderAny: (Any) -> AnyView {
