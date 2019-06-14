@@ -27,7 +27,7 @@ public struct CaseIs<Value, Content: View> {
         return { AnyView(self.builder($0 as! Value)) }
     }
 
-    init(_ type: Value.Type, @ViewBuilder builder:  @escaping (Value) -> Content) {
+    public init(_ type: Value.Type, @ViewBuilder builder:  @escaping (Value) -> Content) {
         self.type = "\(type)"
         self.builder = builder
     }
