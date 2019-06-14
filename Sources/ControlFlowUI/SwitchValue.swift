@@ -37,18 +37,7 @@ public struct CaseIs<Value, Content: View> {
 public struct ViewByTypeBuilder {
     public typealias Component = [String: (Any) -> AnyView]
 
-    /// Builds an empty view from an block containing no statements, `{ }`.
-    public static func buildBlock() -> [String: (Any) -> AnyView] {
-        return [:]
-    }
-
-    /// Passes a single view written as a child view (e..g, `{ Text("Hello") }`) through
-    /// unmodified.
-    public static func buildBlock<Value, Content>(_ caseIs: CaseIs<Value, Content>) -> [String: (Any) -> AnyView] where Content : View {
-        return [caseIs.type: caseIs.builderAny]
-    }
-
-    public static func buildBlock<V0, C0, V1, C1>(_ caseIs0: CaseIs<V0, C0>, _ caseIs1: CaseIs<V1, C1>) -> [String: (Any) -> AnyView] where C0 : View, C1 : View {
+    public static func buildBlock<V0, C0, V1, C1>(_ caseIs0: CaseIs<V0, C0>, _ caseIs1: CaseIs<V1, C1>) -> Component where C0 : View, C1 : View {
         return [caseIs0.type: caseIs0.builderAny, caseIs1.type: caseIs1.builderAny]
     }
 }
