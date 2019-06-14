@@ -7,7 +7,7 @@ public struct SwitchValue<Value>: View {
 
     public init(_ value: Value, @ViewByTypeBuilder builder: () -> [String: (Value) -> AnyView]) {
         self.value = value
-        let typeKey = "\(type(of: value))"
+        let typeKey = "\(type(of: value as Any))" // Trick to find dynamic type. See  https://developer.apple.com/documentation/swift/2885064-type
         if let bodyBuilder = builder()[typeKey] {
             self.bodyBuilder = bodyBuilder
         } else {
