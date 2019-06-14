@@ -5,7 +5,7 @@ public struct SwitchValue<Value>: View {
     private let value: Value
     private let bodyBuilder: (Value) -> AnyView
 
-    init(_ value: Value, @ViewByTypeBuilder builder: () -> [String: (Value) -> AnyView]) {
+    public init(_ value: Value, @ViewByTypeBuilder builder: () -> [String: (Value) -> AnyView]) {
         self.value = value
         let typeKey = "\(type(of: value))"
         if let bodyBuilder = builder()[typeKey] {
