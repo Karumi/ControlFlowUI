@@ -1,6 +1,5 @@
 import XCTest
 import SwiftUI
-import ControlFlowUI
 @testable import ControlFlowUI
 
 final class SwitchValueTests: XCTestCase {
@@ -46,7 +45,7 @@ final class SwitchValueTests: XCTestCase {
     ]
 }
 
-class Fruit {
+private class Fruit {
     var called: Int = 0
 
     var season: String {
@@ -54,7 +53,7 @@ class Fruit {
         return "Apple"
     }
 }
-class Animal {
+private class Animal {
     var called: Int = 0
     var speciesCalled: Int = 0
 
@@ -64,7 +63,7 @@ class Animal {
     }
 }
 
-class Dog: Animal {
+private class Dog: Animal {
     var breedCalled: Int = 0
 
     var breed: String {

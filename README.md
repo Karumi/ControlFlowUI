@@ -4,6 +4,8 @@
 
 Add Control Flow Functionalities to SwiftUI.
 
+## Switch - Type-Casting Patterns
+
 ```swift
 List(dogs.identified(by: \.name)) { dog in
     SwitchValue(dog) {
@@ -12,6 +14,28 @@ List(dogs.identified(by: \.name)) { dog in
         }
         CaseIs(Dog.self) { value in
             Text(value.breed)
+        }
+    }
+}
+```
+
+## If Let - Optional Binding
+
+```swift
+struct DogDetailView : View {
+    @ObjectBinding
+    var viewModel: DogDetailViewModel
+
+    var body: some View {
+        IfLet(viewModel.dog) { item in
+            Group {
+                Text(item.name).color(.white).padding()
+                Text(item.description).color(.white).lineLimit(nil).padding()
+                Spacer()
+            }
+        }
+        .onAppear {
+            self.viewModel.load()
         }
     }
 }
