@@ -28,7 +28,7 @@ struct DogDetailView : View {
 
     var body: some View {
         IfLet(viewModel.dog) { item in
-            Group {
+            VStack {
                 Text(item.name).color(.white).padding()
                 Text(item.description).color(.white).lineLimit(nil).padding()
                 Spacer()
