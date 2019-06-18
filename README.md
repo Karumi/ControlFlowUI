@@ -1,10 +1,12 @@
 # ControlFlowUI
 
+A library that add control flow functionality to SwitUI, using the power of @functionBuilder and ViewBuilder.
+When you get the following error message, check this library:
 **❗Closure containing control flow statement cannot be used with function builder 'ViewBuilder'**
 
-Add Control Flow Functionalities to SwiftUI.
+## Features
 
-## Switch - Type-Casting Patterns
+### Switch - Type-Casting Patterns
 
 ```swift
 List(dogs.identified(by: \.name)) { dog in
@@ -19,7 +21,7 @@ List(dogs.identified(by: \.name)) { dog in
 }
 ```
 
-## If Let - Optional Binding
+### If Let - Optional Binding
 
 ```swift
 struct DogDetailView : View {
@@ -39,4 +41,27 @@ struct DogDetailView : View {
         }
     }
 }
+```
+
+## Requirements
+
+- iOS 13+ / macOS 10.15+ / tvOS 13+, watchOS 6+
+- Xcode 11+
+- Swift 5.1+
+
+## Installation
+
+### XCode
+
+1. File > Swift Packages > Add Package Dependency...
+2. Choose Project you want to add ControlFlowUI
+3. Paste repository URL https://github.com/Karumi/ControlFlowUI
+4. Rules > Branch: Master
+
+### Swift Package Manager
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/Karumi/ControlFlowUI.git", .branch("master"))
+]
 ```
